@@ -1,0 +1,42 @@
+.Editor-header {
+    height: 72px;
+    width: 100%;
+    font-family: "Segoe", "Segoe UI", Arial, "sans-serif";
+}
+
+.Editor-header-section {
+    width: 33.33%;
+    height: 100%;
+    float: left;
+}
+
+.Editor-header-HTML {
+    background-color: rgba(0, 82, 255, 1)
+}
+
+.Editor-header-CSS {
+    background-color: rgba(0, 82, 255, 0.8)
+}
+
+.Editor-header-JS {
+    background-color: rgba(0, 82, 255, 0.6)
+}
+
+.Editor-header-label-section {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.Editor-header-label {
+    font-size: 20px;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+.Editor-header-label-active {
+    font-size: 14px;
+    opacity: 0.6;
+}

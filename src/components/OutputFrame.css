@@ -1,0 +1,8 @@
+.Output {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: calc(100vh - (50vh - 54px) - 72px);
+    overflow: hidden;
+}

@@ -1,13 +1,14 @@
-// TODO: MOVE EDITOR TO SEPARATE COMPONENT
-import React, {Component} from "react";
-import CodeMirror from "react-codemirror";
-import "./black-pearl-ii.css";
-import "./App.css";
-import "./codemirror.css";
+import React, {Component} from 'react';
+import CodeMirror from 'react-codemirror';
+import OutputFrame from './components/OutputFrame';
+import EditorHeader from './components/EditorHeader';
+import './black-pearl-ii.css';
+import './App.css';
+import './codemirror.css';
 
-require("codemirror/mode/javascript/javascript");
-require("codemirror/mode/htmlmixed/htmlmixed");
-require("codemirror/mode/css/css");
+require('codemirror/mode/javascript/javascript');
+require('codemirror/mode/htmlmixed/htmlmixed');
+require('codemirror/mode/css/css');
 
 class App extends Component {
   constructor(props) {
@@ -18,10 +19,6 @@ class App extends Component {
       cssCode: "/* CSS styles here */"
     };
   }
-
-  getOutputSource = () => {
-    return ("<html><head><style>body{border:0;padding:0}" + this.state.cssCode + "</style></head><body>" + this.state.htmlCode + "<script>" + this.state.jsCode + "</script></body></html>");
-  };
 
   updateHtmlCode = newCode => {
     this.setState({htmlCode: newCode});
@@ -35,6 +32,10 @@ class App extends Component {
     this.setState({jsCode: newCode});
   };
 
+  getOutputSource = () => {
+    return ("<html><head><style>body{border:0;padding:0}" + this.state.cssCode + "</style></head><body>" + this.state.htmlCode + "<script>" + this.state.jsCode + "</script></body></html>");
+  };
+
   getOptions = modeName => {
     return {lineNumbers: true, lineWrapping: true, theme: "black-pearl-ii", mode: modeName};
   };
@@ -42,28 +43,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="Editor-header">
-          <div className="Editor-header-section Editor-header-HTML">
-            <div className="Editor-header-label-section">
-              <span className="Editor-header-label">HTML</span>
-              <span className="Editor-header-label-active">Plain ol' HTML5</span>
-            </div>
-          </div>
-          <div className="Editor-header-section Editor-header-CSS">
-            <div className="Editor-header-label-section">
-              <span className="Editor-header-label">CSS</span>
-              <span className="Editor-header-label-active">
-                Using FontAwesome
-              </span>
-            </div>
-          </div>
-          <div className="Editor-header-section Editor-header-JS">
-            <div className="Editor-header-label-section">
-              <span className="Editor-header-label">JS</span>
-              <span className="Editor-header-label-active">Using anime.js</span>
-            </div>
-          </div>
-        </div>
+        <EditorHeader/>
         <CodeMirror
           value={this.state.htmlCode}
           onChange={this.updateHtmlCode}
@@ -79,7 +59,7 @@ class App extends Component {
           onChange={this.updateJsCode}
           options={this.getOptions("javascript")}
           className="Editor"/>
-        <div className="Output"></div>
+        <OutputFrame outputSource={this.getOutputSource()}/>
       </div>
     );
   }
