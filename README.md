@@ -49,4 +49,4 @@ $ npm start
 
 ## Credits 👨
 
-Designed and developed by: [@apollonian11](https://www.github.com/apollonian11) and [@jay9596](https://www.github.com/jay9596)
+Designed and developed by: [@apollonian11](https://www.github.com/apollonian11), [@jay9596](https://www.github.com/jay9596) and [@haptichash](https://www.github.com/haptichash)
